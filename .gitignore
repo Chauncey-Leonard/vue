@@ -1,2 +1,5 @@
 # JetBrains
 .idea
+
+# Visual Studio Code
+.vscode
