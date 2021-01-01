@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>计数器</title>
+</head>
+<body>
+<div id="app">
+  <h1>当前计数: {{ count }}</h1>
+  <!-- <button v-on:click="count++">increment</button> -->
+  <!-- <button v-on:click="count&#45;&#45;">decrement</button> -->
+  <button @click="increment">increment</button>
+  <button @click="decrement">decrement</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  /**
+   * 命令式编程:
+   *  - 获取Button元素
+   *  - 添加监听事件
+   *
+   *  Vue绑定事件: v-on, 语法糖写法 -> @
+   */
+  const app = new Vue({
+    el: '#app',
+    data: {
+      count: 0
+    },
+    methods: {
+      increment() {
+        this.count++;
+      },
+      decrement() {
+        this.count--;
+      }
+    }
+  })
+</script>
+</body>
+</html>
