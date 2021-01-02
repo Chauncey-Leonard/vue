@@ -63,3 +63,9 @@ const app = new Vue({
   }
 })
 ```
+
+### 三、Vue属性(部分)
+
+-   el: string | HTMLElement, 决定之后Vue实例会管理哪一个DOM
+-   data: Object | Function, Vue实例对应的数据对象
+-   methods: { }, 定义属于Vue的一些方法, 可以在其他地方调用, 也可以在指令中调用
