@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind</title>
+</head>
+<body>
+<div id="app">
+  <img v-bind:src="imageUrl" alt="">
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  /**
+   * v-bind: 动态绑定属性
+   * 语法糖: 冒号(:), 如:src, :href
+   */
+  const app = new Vue({
+    el: '#app',
+    data: {
+      imageUrl: 'https://cdn.chaunc3y.top/avatar.jpg'
+    }
+  })
+</script>
+</body>
+</html>
