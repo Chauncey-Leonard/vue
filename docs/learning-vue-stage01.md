@@ -69,3 +69,26 @@ const app = new Vue({
 -   el: string | HTMLElement, 决定之后Vue实例会管理哪一个DOM
 -   data: Object | Function, Vue实例对应的数据对象
 -   methods: { }, 定义属于Vue的一些方法, 可以在其他地方调用, 也可以在指令中调用
+
+### 四、v-bind
+
+动态绑定属性, 语法糖: `:`, 如`:src`, `:href`
+
+html
+
+```html
+<div id="app">
+  <img :src="imageUrl" alt="">
+</div>
+```
+
+js
+
+```javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    imageUrl: 'https://cn.bing.com/th?id=OHR.LargestCave_ZH-CN2069899703_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
+  }
+})
+```
