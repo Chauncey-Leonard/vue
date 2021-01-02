@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue options</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../js/vue.js"></script>
+<script>
+  /**
+   * Vue options:
+   *  - el: string | HTMLElement, 决定之后Vue实例会管理哪一个DOM
+   *  - data: Object | Function, Vue实例对应的数据对象
+   *  - methods: {
+   *    [key: string]: Function
+   *  }, 定义属于Vue的一些方法, 可以在其他地方调用, 也可以在指令中调用
+   */
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue'
+    },
+    methods: {}
+  })
+</script>
+</body>
+</html>
