@@ -101,7 +101,14 @@ html
 
 ```html
 <div id="app">
-  <h1 :class="{active: isActive}">Chauncey</h1>
+  <!-- 一、直接通过{}绑定一个class -->
+  <h1 :class="{'active': isActive}">Chauncey</h1>
+  <!-- 二、可以通过判断传入多个值 -->
+  <h1 :class="{'active': isActive, 'name': showName}">Multi</h1>
+  <!-- 三、和普通类同时存在的时候, 并不冲突 -->
+  <h1 class="normal" :class="{'active': isActive, 'name': showName}">With Normal class</h1>
+  <!-- 四、如果class过于复杂, 可以放在一个method或computed中 -->
+  <h1 :class="getClasses()">With Method Or Computed</h1>
   <button @click="clickHandler">Click Me</button>
 </div>
 ```
@@ -117,6 +124,12 @@ const app = new Vue({
   methods: {
     clickHandler() {
       this.isActive = !this.isActive;
+    },
+    getClasses() {
+      return {
+        'name': this.showName,
+        'active': this.isActive
+      }
     }
   }
 })
