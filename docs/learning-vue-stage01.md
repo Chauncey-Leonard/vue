@@ -92,3 +92,32 @@ const app = new Vue({
   }
 })
 ```
+
+#### 1.动态绑定class-对象语法
+
+动态绑定样式时, 值可以为对象`:class="{key1: boolean, key2: boolean}"`
+
+html
+
+```html
+<div id="app">
+  <h1 :class="{active: isActive}">Chauncey</h1>
+  <button @click="clickHandler">Click Me</button>
+</div>
+```
+
+js
+
+```javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    isActive: true
+  },
+  methods: {
+    clickHandler() {
+      this.isActive = !this.isActive;
+    }
+  }
+})
+```
