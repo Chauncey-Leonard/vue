@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>动态绑定class-对象语法</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1 :class="{ active: isActive }">Chauncey</h1>
+  <button @click="clickHandler">Click Me</button>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      isActive: true
+    },
+    methods: {
+      clickHandler() {
+        this.isActive = !this.isActive;
+      }
+    }
+  })
+</script>
+</body>
+</html>
