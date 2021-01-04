@@ -134,3 +134,28 @@ const app = new Vue({
   }
 })
 ```
+
+#### 2.数组语法
+
+html
+
+```html
+<div id="app">
+  <!-- 一、使用字符串 -->
+  <h1 :class="['active', 'line']">Bind class by array -- string</h1>
+  <!-- 二、使用变量-->
+  <h1 :class="[active, line]">Bind class by array -- variable</h1>
+</div>
+```
+
+js
+
+```javascript
+ const app = new Vue({
+    el: '#app',
+    data: {
+      active: 'active',
+      line: 'light'
+    }
+  })
+```
