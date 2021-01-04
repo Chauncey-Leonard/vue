@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>计算属性的复杂操作</title>
+</head>
+<body>
+<div id="app">
+  <h1>总价格-computed: {{ totalPrice }}</h1>
+  <h1>总价格-methods: {{ getTotalPrice() }}</h1>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  /**
+   * 问题: methods和computed都可以实现我们的功能, 为什么还需要computed?
+   * 原因: 计算属性会进行缓存, 如果多次使用时, 计算属性只会调用一次
+   */
+  const app = new Vue({
+    el: '#app',
+    data: {
+      books: [
+        {id: 1001, name: 'Unix编程艺术', price: 119},
+        {id: 1002, name: '代码大全', price: 152},
+        {id: 1003, name: '现代操作系统', price: 68},
+        {id: 1004, name: '深入理解计算机原理', price: 99},
+      ]
+    },
+    computed: {
+      totalPrice() {
+        return this.books.reduce(((previousValue, currentValue) => previousValue + currentValue.price), 0)
+      }
+    },
+    methods: {
+      getTotalPrice() {
+        return this.books.reduce(((previousValue, currentValue) => previousValue + currentValue.price), 0)
+      }
+    }
+  });
+</script>
+</body>
+</html>
