@@ -199,3 +199,29 @@ js
     }
   })
 ```
+
+#### 4.动态绑定style-数组语法
+
+html
+
+```html
+<div id="app">
+  <p :style="[active, important]">Bind styles by array</p>
+</div>
+```
+
+js
+
+```javascript
+  const app = new Vue({
+    el: '#app',
+    data: {
+      active: {
+        background: 'red'
+      },
+      important: {
+        fontSize: '50px'
+      }
+    }
+  })
+```
