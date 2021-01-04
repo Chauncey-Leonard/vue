@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>动态绑定style-数组语法</title>
+</head>
+<body>
+<div id="app">
+  <p :style="[active, important]">Bind styles by array</p>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      active: {
+        background: 'red'
+      },
+      important: {
+        fontSize: '50px'
+      }
+    }
+  })
+</script>
+</body>
+</html>
