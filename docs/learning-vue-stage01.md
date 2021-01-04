@@ -253,3 +253,6 @@ const app = new Vue({
   }
 })
 ```
+
+问题: methods和computed都可以实现我们的功能, 为什么还需要computed?
+原因: 计算属性会进行缓存, 如果多次使用时, 计算属性只会调用一次
