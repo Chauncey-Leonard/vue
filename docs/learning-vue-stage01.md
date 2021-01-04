@@ -35,13 +35,15 @@ Vue提供了一个官方的CLI, 为单页面应用(SPA)快速搭建繁杂的脚�
 
 ### 二、Hello VueJS
 
-`html`
+Mustache 体验Vue响应式
+
+html
 
 ```html
 <div id="app"></div>
 ```
 
-`script`
+js
 
 ```javascript
 /**
@@ -255,4 +257,4 @@ const app = new Vue({
 ```
 
 问题: methods和computed都可以实现我们的功能, 为什么还需要computed?
-原因: 计算属性会进行缓存, 如果多次使用时, 计算属性只会调用一次
+原因: 计算属性会进行`缓存`, 如果多次使用时, 计算属性只会调用一次
