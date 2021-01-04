@@ -135,7 +135,7 @@ const app = new Vue({
 })
 ```
 
-#### 2.数组语法
+#### 2.动态绑定class-数组语法
 
 html
 
@@ -156,6 +156,37 @@ js
     data: {
       active: 'active',
       line: 'light'
+    }
+  })
+```
+
+#### 3.动态绑定style-对象语法
+
+我们可以使用:style来绑定内联样式
+在书写css属性名的时候:
+- 可以使用驼峰式(camelCase): fontSize
+- 或者使用短横线分隔(kebab-case), 需要使用单引号包裹: 'font-size'
+
+style后面跟的是一个对象类型:
+- 对象的key是css属性名称
+- 对象的value是具体赋的值, 值可以为变量, 即可以来自data中定义的变量
+
+html
+
+```html
+<div id="app">
+  <h1 :style="{color: currentColor, fontSize: fontSize + 'px'}">Bind style by object</h1>
+</div>
+```
+
+js
+
+```javascript
+  const app = new Vue({
+    el: '#app',
+    data: {
+      currentColor: 'yellow',
+      fontSize: 16
     }
   })
 ```
