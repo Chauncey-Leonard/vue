@@ -17,6 +17,7 @@
       - 对象的value是具体赋的值, 值可以为变量, 即可以来自data中定义的变量
    -->
   <h1 :style="{color: currentColor, fontSize: fontSize + 'px'}">Bind style by object</h1>
+  <h1 :style="getStyles()">Bind style by object</h1>
 </div>
 <script src="../../js/vue.js"></script>
 <script>
@@ -25,6 +26,14 @@
     data: {
       currentColor: 'yellow',
       fontSize: 16
+    },
+    methods: {
+      getStyles() {
+        return {
+          background: this.currentColor,
+          fontSize: this.fontSize + 'px'
+        }
+      }
     }
   })
 </script>
