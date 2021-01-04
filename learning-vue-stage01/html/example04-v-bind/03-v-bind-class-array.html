@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>动态绑定class-数组语法</title>
+</head>
+<body>
+<div id="app">
+  <!-- 一、使用字符串 -->
+  <h1 :class="['active', 'line']">Bind class by array -- string</h1>
+  <!-- 二、使用变量-->
+  <h1 :class="[active, line]">Bind class by array -- variable</h1>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      active: 'active',
+      line: 'light'
+    }
+  })
+</script>
+</body>
+</html>
