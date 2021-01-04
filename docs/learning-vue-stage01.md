@@ -176,6 +176,7 @@ html
 ```html
 <div id="app">
   <h1 :style="{color: currentColor, fontSize: fontSize + 'px'}">Bind style by object</h1>
+  <h1 :style="getStyles()">Bind style by object</h1>
 </div>
 ```
 
@@ -187,6 +188,14 @@ js
     data: {
       currentColor: 'yellow',
       fontSize: 16
+    },
+    methods: {
+      getStyles() {
+        return {
+          background: this.currentColor,
+          fontSize: this.fontSize + 'px'
+        }
+      }
     }
   })
 ```
