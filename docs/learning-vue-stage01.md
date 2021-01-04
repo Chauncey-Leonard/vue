@@ -4,7 +4,7 @@
 
 #### `1.直接通过cdn引入`
 
-```javascript
+```html
 <!-- 开发环境版本，包含了有帮助的命令行警告 -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- 生产环境版本，优化了尺寸和速度 -->
@@ -12,6 +12,7 @@
 ```
 
 #### `2.下载引入`
+
 ```text
 开发环境: https://vuejs.org/js/vue.js
 生产环境: https://vuejs.org/js/vue.min.js
@@ -224,4 +225,31 @@ js
       }
     }
   })
+```
+
+### 五、计算属性(computed)
+
+在前面的案例中, 我们已经知道可以使用插值语法显示data中的数据, 模板内使用简单的表达式非常的便利, 但是复杂的逻辑只会使模板过于臃肿, 这时, 我们可以使用计算属性来对复杂的逻辑进行处理.
+
+#### 1.基础案例
+
+```html
+<div id="app">
+  <h1>{{ fullName }}</h1>
+</div>
+```
+
+```javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    firstName: 'Chauncey',
+    lastName: 'Leonard'
+  },
+  computed: {
+    fullName() {
+      return `${this.firstName} ${this.lastName}`
+    }
+  }
+})
 ```
