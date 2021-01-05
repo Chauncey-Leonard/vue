@@ -6,9 +6,14 @@
 </head>
 <body>
 <div id="app">
+  <!-- 一、直接拼接: 语法过于繁琐 -->
   <h1>{{ firstName }} {{ lastName }}</h1>
   <h1>{{ firstName + ' ' + lastName }}</h1>
+
+  <!-- 二、通过定义methods -->
   <h1>{{ getFullName() }}</h1>
+
+  <!-- 三、通过computed -->
   <h1>{{ fullName }}</h1>
 </div>
 <script src="../../js/vue.js"></script>
