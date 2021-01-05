@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>字面量增强写法</title>
+</head>
+<body>
+<script>
+  // es5
+  const obj = {
+    name: 'Chauncey',
+    age: 18,
+    run: function () {
+      console.log('running')
+    }
+  }
+
+  // 1.属性的增强写法
+  const [name, age] = ['Chauncey', 18];
+
+  // es5
+  const obj1 = {
+    name: name,
+    age: age
+  }
+
+  // es6
+  const obj2 = {
+    name,
+    age
+  }
+
+  // 2.函数的增强写法
+  // es5
+  const obj3 = {
+    run: function () {
+      console.log('running')
+    }
+  }
+
+  // es6
+  const obj4 = {
+    run() {
+      console.log('running')
+    }
+  }
+
+</script>
+</body>
+</html>
