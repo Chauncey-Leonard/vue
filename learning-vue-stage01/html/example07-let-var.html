@@ -10,21 +10,23 @@
 <script>
   var buttons = document.getElementsByTagName('button');
 
-  /* 只会弹出点击了第2个 */
-  /*for (var i = 0; i < buttons.length; i++) {
-    buttons[i].onclick = function () {
-      alert(`点击了第${i + 1}个`)
-    }
-  }*/
+  /**
+   * 没有作用域, 将会导致i的值始终为最大的那个
+   */
+  // for (var i = 0; i < buttons.length; i++) {
+  //   buttons[i].onclick = function () {
+  //     alert(`点击了第${i + 1}个`)
+  //   }
+  // }
 
   // ES5中使用闭包
-  for (var i = 0; i < buttons.length; i++) {
-    (function (i) {
-      buttons[i].addEventListener('click', function () {
-        alert(`点击了${i + 1}个`)
-      })
-    })(i)
-  }
+  // for (var i = 0; i < buttons.length; i++) {
+  //   (function (i) {
+  //     buttons[i].addEventListener('click', function () {
+  //       alert(`点击了${i + 1}个`)
+  //     })
+  //   })(i)
+  // }
 
   // ES6中使用let
   for (let i = 0; i < buttons.length; i++) {
