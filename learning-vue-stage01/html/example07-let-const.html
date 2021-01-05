@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>let和const</title>
+</head>
+<body>
+<button>Click Me</button>
+<button>Click Me</button>
+<script>
+  var buttons = document.getElementsByTagName('button');
+
+  /* 只会弹出点击了第2个 */
+  /*for (var i = 0; i < buttons.length; i++) {
+    buttons[i].onclick = function () {
+      alert(`点击了第${i + 1}个`)
+    }
+  }*/
+
+  /*for (var i = 0; i < buttons.length; i++) {
+    (function (i) {
+      buttons[i].addEventListener('click', function () {
+        alert(`点击了${i + 1}个`)
+      })
+    })(i)
+  }*/
+
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].onclick = function () {
+      alert(`点击了第${i + 1}个`)
+    }
+  }
+</script>
+</body>
+</html>
