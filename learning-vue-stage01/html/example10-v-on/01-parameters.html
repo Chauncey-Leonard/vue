@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>参数传递</title>
+</head>
+<body>
+<div id="app">
+  <!-- 没有参数 -->
+  <button @click="btn1Click">Button1</button>
+  <!-- 不省略括号时, 不显式传递event参数, 则event为undefined -->
+  <button @click="btn1Click()">Button2</button>
+  <!-- 不省略括号时传递event -->
+  <button @click="btn2Click($event)">Button3</button>
+  <!-- 传递默认参数和额外参数, 顺序无关 -->
+  <button @click="btn4Click($event, 'Chauncey')">Button4</button>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  /**
+   * 在methods中定义方法, 以供@click调用时, 需要注意的参数问题:
+   * -  如果该方法不需要额外的参数, 那么在调用方法时可以省略括号
+   * -  如果在传入其他参数的同时需要event参数, 可以通过$event传入事件
+   */
+  const app = new Vue({
+    el: '#app',
+    methods: {
+      btn1Click(event) {
+        console.log(event);
+      },
+      btn2Click(event) {
+        console.log(event)
+      },
+      btn4Click(event, name) {
+        console.log(event, name)
+      }
+    }
+  })
+</script>
+</body>
+</html>
