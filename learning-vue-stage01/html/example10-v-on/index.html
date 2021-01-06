@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{ count }}</h1>
+  <!-- <button @click="count++">+</button> -->
+  <!-- <button @click="count&#45;&#45;">-</button> -->
+  <button @click="increment">+</button>
+  <button @click="decrement">-</button>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  /**
+   * v-on:
+   *  - 作用: 绑定事件监听器
+   *  - 缩写: @
+   *  - 预期: Function | Inline Statement | Object
+   *  - 参数: event
+   */
+  const app = new Vue({
+    el: '#app',
+    data: {
+      count: 0
+    },
+    methods: {
+      increment() {
+        this.count++;
+      },
+      decrement() {
+        this.count--;
+      }
+    }
+  })
+</script>
+</body>
+</html>
