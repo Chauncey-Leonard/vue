@@ -46,6 +46,13 @@ const app = new Vue({
      */
     decrement(index) {
       this.books[index].count--;
+    },
+    /**
+     * 将书籍从购物车中移除
+     * @param {number} index 移除书籍的下标
+     */
+    removeBook(index) {
+      this.books.splice(index, 1);
     }
   },
   filters: {
