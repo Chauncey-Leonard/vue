@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>书籍购物车</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div id="app">
+  <table>
+    <tr>
+      <th></th>
+      <th>书籍名称</th>
+      <th>出版日期</th>
+      <th>价格</th>
+      <th>购买数量</th>
+      <th>操作</th>
+    </tr>
+    <tr
+      v-for="(book, index) in books"
+      :key="book.id"
+    >
+      <td>{{ index + 1 }}</td>
+      <td>{{ book.name }}</td>
+      <td>{{ book.published }}</td>
+      <td>{{ book.price | finalPrice}}</td>
+      <td>
+        <button
+          @click="decrement(index)"
+          :disabled="book.count === 0"
+        >
+          -
+        </button>
+        {{ book.count }}
+        <button @click="increment(index)">+</button>
+      </td>
+      <td>
+        <button>移除</button>
+      </td>
+    </tr>
+  </table>
+  <h1>总价: {{ totalPrice | finalPrice }}</h1>
+</div>
+<script src="../../js/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
