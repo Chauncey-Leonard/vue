@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-show</title>
+</head>
+<body>
+<!--
+  v-show的用法和v-if非常相似, 也用于决定一个元素是否显示
+
+  v-show vs v-if
+  - v-if当条件为false时, 对应的元素不会被渲染, 即元素节点都不会被加载
+  - v-show当条件为false时, 仅仅只是将元素的display属性设置为none
+
+  开发中如何选择?
+    - 当需要在显示和不显示之前切换很频繁, 使用v-show
+    - 当只有一次切换时, 使用v-if
+-->
+<div id="app">
+  <h1 v-show="flag">Chauncey</h1>
+  <button @click="flag = !flag">切换显示</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      flag: true
+    }
+  })
+</script>
+</body>
+</html>
