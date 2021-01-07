@@ -27,7 +27,7 @@
       <td>
         <button
           @click="decrement(index)"
-          :disabled="book.count === 0"
+          :disabled="book.count <= 1"
         >
           -
         </button>

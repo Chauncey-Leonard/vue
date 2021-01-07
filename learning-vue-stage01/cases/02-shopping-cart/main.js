@@ -7,30 +7,30 @@ const app = new Vue({
         name: '算法导论',
         published: '2006-09',
         price: 85.00,
-        count: 0,
+        count: 1,
       },
       {
         id: 10002,
         name: 'UNIX编程艺术',
         published: '2006-02',
         price: 59.00,
-        count: 0,
+        count: 1,
       },
       {
         id: 10003,
         name: '编程珠玑',
         published: '2008-10',
         price: 39.00,
-        count: 0,
+        count: 1,
       },
       {
         id: 10004,
         name: '代码大全',
         published: '2006-03',
         price: 128.00,
-        count: 0,
-      },
-    ],
+        count: 1,
+      }
+    ]
   },
   methods: {
     /**
