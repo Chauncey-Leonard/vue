@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for遍历对象</title>
+</head>
+<body>
+<div id="app">
+  <!-- 1.在遍历过程中, 如果只是获取一个值, 那么获取到的就是value -->
+  <ul>
+    <li
+      v-for="item in info"
+      :key="item"
+    >
+      {{ item }}
+    </li>
+  </ul>
+
+  <!-- 2.在遍历过程中, 获取两个值, 第一个为value, 第二个为对象的键名 -->
+  <ul>
+    <li
+      v-for="(value, key) in info"
+      :key="key"
+    >
+      {{ key + ' ' + value }}
+    </li>
+  </ul>
+
+  <!-- 3.在遍历过程中, 获取value、对象属性名、索引值 -->
+  <ul>
+    <li
+      v-for="(value, key, index) in info"
+      :key="index"
+    >
+      {{ index + ' ' + key + ' ' + value }}
+    </li>
+  </ul>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      info: {
+        name: 'Chauncey',
+        age: 12
+      }
+    }
+  })
+</script>
+</body>
+</html>
