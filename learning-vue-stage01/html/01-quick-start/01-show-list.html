@@ -8,7 +8,10 @@
 <div id="app">
   <ul>
     <!-- 使用 v-for 指令用于展示列表信息, 并且是响应式的 -->
-    <li v-for="item in languages">
+    <li
+      v-for="item in languages"
+      :key="item"
+    >
       {{ item }}
     </li>
   </ul>

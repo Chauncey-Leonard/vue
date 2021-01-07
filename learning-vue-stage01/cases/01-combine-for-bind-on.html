@@ -4,29 +4,30 @@
   <meta charset="UTF-8">
   <title>v-for结合v-bind、v-on案例</title>
   <style>
-      .language:hover {
-          cursor: pointer;
-      }
+    .language:hover {
+      cursor: pointer;
+    }
 
-      .active {
-          color: aquamarine;
-      }
+    .active {
+      color: aquamarine;
+    }
   </style>
 </head>
 <body>
 <!-- 点击列表中的哪一项, 该项的颜色改变 -->
 <div id="app">
   <ul>
-    <li v-for="(item, index) in languages"
-        class="language"
-        :class="{'active': currentIndex === index}"
-        @click="clickHandler(index)"
+    <li
+      v-for="(item, index) in languages"
+      class="language"
+      :class="{'active': currentIndex === index}"
+      @click="clickHandler(index)"
     >
       {{ item }}
     </li>
   </ul>
 </div>
-<script src="../../js/vue.js"></script>
+<script src="../js/vue.js"></script>
 <script>
   const app = new Vue({
     el: '#app',
