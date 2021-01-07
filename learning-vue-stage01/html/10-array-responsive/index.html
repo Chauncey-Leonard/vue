@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数组响应式的方法</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li
+      v-for="(letter, index) in letters"
+      :key="index"
+    >
+      {{ letter }}
+    </li>
+  </ul>
+
+  <button @click="clickHandler">Click Me</button>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      letters: ['A', 'B', 'C', 'D', 'E']
+    },
+    methods: {
+      clickHandler() {
+        // 响应式的: push、pop、shift、unshift、splice、sort、reverse
+        this.letters.push('F');
+
+        // 非响应式
+        // 1.通过索引值修改数组中的元素
+        // this.letters[0] = 'F';
+      }
+    }
+  })
+</script>
+</body>
+</html>
