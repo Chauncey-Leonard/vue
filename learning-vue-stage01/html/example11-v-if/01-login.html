@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用户登录切换</title>
+</head>
+<body>
+<div id="app">
+  <label v-if="flag">
+    用户名
+    <input type="text" placeholder="请输入用户名">
+  </label>
+
+  <label v-else>
+    邮箱
+    <input type="text" placeholder="请输入邮箱">
+  </label>
+
+  <button @click="flag = !flag">切换类型</button>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      flag: true
+    }
+  })
+</script>
+</body>
+</html>
