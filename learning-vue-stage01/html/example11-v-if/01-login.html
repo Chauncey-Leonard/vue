@@ -5,15 +5,20 @@
   <title>用户登录切换</title>
 </head>
 <body>
+<!--
+  存在的问题: 如果我们在有输入内容的情况下, 点击了切换类型, 文本框中依然会保留之前输入的类型
+  原因: 因为Vue在进行DOM的渲染时, 出于性能的考虑, 会尽可能的复用已经存在的元素, 而不是创建新的元素
+  解决方案: 如果我们不希望Vue出现类似的重复利用的问题, 可以给对应的input添加key, 并且需要保证添加的key不同
+-->
 <div id="app">
   <label v-if="flag">
     用户名
-    <input type="text" placeholder="请输入用户名">
+    <input type="text" placeholder="请输入用户名" key="username-input">
   </label>
 
   <label v-else>
     邮箱
-    <input type="text" placeholder="请输入邮箱">
+    <input type="text" placeholder="请输入邮箱" key="email-input">
   </label>
 
   <button @click="flag = !flag">切换类型</button>
