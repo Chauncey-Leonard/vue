@@ -33,19 +33,36 @@ const app = new Vue({
     ],
   },
   methods: {
+    /**
+     * 增加书籍数量
+     * @param {number} index 增加书籍的下标
+     */
     increment(index) {
       this.books[index].count++;
     },
+    /**
+     * 减少书籍数量
+     * @param {number} index 减少书籍的下标
+     */
     decrement(index) {
       this.books[index].count--;
     }
   },
   filters: {
+    /**
+     * 过滤价格显示
+     * @param {number} price 价格
+     * @returns {string} 最终显示的价格
+     */
     finalPrice(price) {
       return `￥${price.toFixed(2)}`;
     },
   },
   computed: {
+    /**
+     * 计算购物车中书籍的总价
+     * @returns {number} 书籍总价
+     */
     totalPrice() {
       return this.books.reduce((previousValue, currentValue) =>
         previousValue + currentValue.count * currentValue.price,
