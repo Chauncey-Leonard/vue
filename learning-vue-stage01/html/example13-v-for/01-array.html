@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for遍历数组</title>
+</head>
+<body>
+<div id="app">
+  <!-- 1.不适用索引值(下标) -->
+  <ul>
+    <li
+      v-for="name in names"
+      :key="name"
+    >
+      {{ name }}
+    </li>
+  </ul>
+
+  <!-- 2.在遍历过程中, 获取索引值 -->
+  <ul>
+    <li
+      v-for="(name, index) in names"
+      :key="index"
+    >
+      {{ name }}
+    </li>
+  </ul>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      names: ['Chauncey', 'Leonard', 'James']
+    }
+  })
+</script>
+</body>
+</html>
