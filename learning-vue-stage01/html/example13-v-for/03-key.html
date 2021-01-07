@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for绑定key</title>
+</head>
+<body>
+<!--
+  key的作用主要是为了高效的更新虚拟DOM
+-->
+<div id="app">
+  <ul>
+    <li
+      v-for="(name, index) in names"
+      :key="index"
+    >
+      {{ name }}
+    </li>
+  </ul>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      names: ['Chauncey', 'Leonard', 'James']
+    }
+  })
+</script>
+</body>
+</html>
