@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>全局组件和局部组件</title>
+</head>
+<body>
+<div id="app">
+  <!-- 3.使用组件 -->
+  <my-component></my-component>
+</div>
+
+<div id="partial">
+  <my-component></my-component>
+  <partial-component></partial-component>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  // 1.创建组件构造器
+  const myComponent = Vue.extend({
+    template: `
+    <div>
+      <h2>组件标题</h2>
+      <p>组件内容</p>
+    </div>
+    `
+  });
+
+  // 局部组件, 只能在注册的组件中使用
+  const partialComponent = Vue.extend({
+    template: `<div>局部组件</div>`
+  })
+
+  // 2.注册组件(全局组件, 意味着可以在多个Vue实例下使用)
+  Vue.component('MyComponent', myComponent);
+
+  const app = new Vue({
+    el: '#app'
+  })
+
+  // 局部组件
+  const partial = new Vue({
+    el: '#partial',
+    components: {
+      // PartialComponent: partialComponent
+      partialComponent
+    }
+  })
+</script>
+</body>
+</html>
