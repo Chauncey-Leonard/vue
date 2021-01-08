@@ -6,17 +6,26 @@
 </head>
 <body>
 <div id="app">
+  <!-- 1.checkbox单选框 -->
+  <!-- <label for="agree-input">同意协议</label> -->
+  <!-- <input type="checkbox" id="agree-input" v-model="flag"> -->
+  <!-- <h2>您选择的是: {{ flag }}</h2> -->
+  <!-- <button :disabled="!flag">下一步</button> -->
+
+  <!-- 2.checkbox多选框 -->
   <label>
-    <span>Java</span>
-    <input type="checkbox" value="Java" v-model="languages">
+    <input type="checkbox" value="Java" v-model="languages">Java
+    <input type="checkbox" value="JavaScript" v-model="languages">JavaScript
+    <input type="checkbox" value="C++" v-model="languages">C++
   </label>
-  <h2>{{ languages }}</h2>
+  <h2>您选择的是: {{ languages }}</h2>
 </div>
 <script src="../../js/vue.js"></script>
 <script>
   const app = new Vue({
     el: '#app',
     data: {
+      flag: false,
       languages: []
     }
   })
