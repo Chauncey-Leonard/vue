@@ -327,3 +327,37 @@ const app = new Vue({
   <button @click="btn4Click($event, 'Chauncey')">Button4</button>
 </div>
 ```
+
+v-on中的修饰符: 在某些情况下, 我们拿到event可能是进行一些事件处理
+
+- .stop: 调用event.stopPropagation()
+- .prevent: 调用event.preventDefault()
+- .{keyCode | keyAlias}: 只当事件是从特定键触发时才触发回调
+- .once: 只调用一次回调
+
+```html
+
+<div id="app">
+  <!-- 停止冒泡 -->
+  <button @click.stop="clickHandler">Button1</button>
+
+  <!-- 阻止默认行为 -->
+  <button @click.prevent="clickHandler">Button2</button>
+
+  <!-- 串联修饰符 -->
+  <button @click.stop.prevent="clickHandler">Button3</button>
+
+  <!-- 键修饰符、键别名 -->
+  <label>
+    <input type="text" @keyup.enter="onEnter">
+  </label>
+
+  <!-- 键修饰符、键代码 -->
+  <label>
+    <input type="text" @keyup.13="onEnter">
+  </label>
+
+  <!-- 点击只触发一次 -->
+  <button @click.once="clickHandler">Button4</button>
+</div>
+```
