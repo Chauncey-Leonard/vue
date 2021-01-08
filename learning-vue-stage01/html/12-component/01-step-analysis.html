@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册组件步骤解析</title>
+</head>
+<body>
+<div id="app">
+  <!-- 3.使用组件 -->
+  <my-component></my-component>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  /*
+   * 注册组件的基本步骤:
+   * -  创建组件构造器
+   * -  注册组件
+   * -  使用组件
+   *
+   * 1.Vue.extend()
+   *  - 创建的是一个组件构造器
+   *  - 通常在创建组件构造器时, 传入template代表我们自定义的组件模板
+   *  - 模板的内容就是在使用该组件的地方, 要显示的HTML代码
+   *  - 实际上, 这种写法在2.x的版本的文档中几乎已经看不见了, 我们会直接使用语法糖的方式,
+   *    但是在很多的资料中还是会提到这种方式, 并且这种方式是是学习后面语法糖的基础
+   *
+   * 2.Vue.component()
+   *  - 将自定义的组件构造器注册为一个组件, 并给它起一个组件的标签名称
+   *  - 需要传递两个参数: 1、注册组件的标签名 2、组件构造器
+   *
+   * 3.组件必须挂载在某个Vue的实例下, 否则不会生效
+   */
+
+  // 1.创建组件构造器
+  const myComponent = Vue.extend({
+    template: `
+    <div>
+      <h2>组件标题</h2>
+      <p>组件内容</p>
+    </div>
+    `
+  });
+
+  // 2.注册组件
+  Vue.component('MyComponent', myComponent);
+
+  const app = new Vue({
+    el: '#app'
+  })
+</script>
+</body>
+</html>
