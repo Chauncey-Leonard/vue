@@ -20,7 +20,8 @@
 
 #### `3.npm安装`
 
-在用Vue构建大型应用时推荐使用npm安装, npm可以很好的和诸如`webpack`或`Browserify`模块打包器配合使用, 同时Vue也提供配套工具来开发单文件组件
+在用Vue构建大型应用时推荐使用npm安装, npm可以很好的和诸如`webpack`或`Browserify`模块打包器配合使用,
+同时Vue也提供配套工具来开发单文件组件
 
 ```bash
 # 最新稳定版
@@ -29,7 +30,8 @@ npm install vue
 
 #### `4.命令行工具(CLI)`
 
-Vue提供了一个官方的CLI, 为单页面应用(SPA)快速搭建繁杂的脚手架, 它为现代前端工作流提供了 batteries-included 的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本。
+Vue提供了一个官方的CLI, 为单页面应用(SPA)快速搭建繁杂的脚手架, 它为现代前端工作流提供了 batteries-included
+的构建设置。只需要几分钟的时间就可以运行起来并带有热重载、保存时 lint 校验，以及生产环境可用的构建版本。
 
 注意: 不推荐新手直接使用脚手架工具！
 
@@ -40,6 +42,7 @@ Mustache 体验Vue响应式
 html
 
 ```html
+
 <div id="app"></div>
 ```
 
@@ -60,18 +63,18 @@ js
  *  - 将message变量放在前面定义的div元素中显示
  */
 const app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello VueJS'
-  }
-})
+    el: '#app',
+    data: {
+      message: 'Hello VueJS'
+    }
+  })
 ```
 
 ### 三、Vue属性(部分)
 
--   el: string | HTMLElement, 决定之后Vue实例会管理哪一个DOM
--   data: Object | Function, Vue实例对应的数据对象
--   methods: { }, 定义属于Vue的一些方法, 可以在其他地方调用, 也可以在指令中调用
+- el: string | HTMLElement, 决定之后Vue实例会管理哪一个DOM
+- data: Object | Function, Vue实例对应的数据对象
+- methods: { }, 定义属于Vue的一些方法, 可以在其他地方调用, 也可以在指令中调用
 
 ### 四、v-bind
 
@@ -80,6 +83,7 @@ const app = new Vue({
 html
 
 ```html
+
 <div id="app">
   <img :src="imageUrl" alt="">
 </div>
@@ -103,13 +107,15 @@ const app = new Vue({
 html
 
 ```html
+
 <div id="app">
   <!-- 一、直接通过{}绑定一个class -->
   <h1 :class="{'active': isActive}">Chauncey</h1>
   <!-- 二、可以通过判断传入多个值 -->
   <h1 :class="{'active': isActive, 'name': showName}">Multi</h1>
   <!-- 三、和普通类同时存在的时候, 并不冲突 -->
-  <h1 class="normal" :class="{'active': isActive, 'name': showName}">With Normal class</h1>
+  <h1 class="normal" :class="{'active': isActive, 'name': showName}">With Normal
+    class</h1>
   <!-- 四、如果class过于复杂, 可以放在一个method或computed中 -->
   <h1 :class="getClasses()">With Method Or Computed</h1>
   <button @click="clickHandler">Click Me</button>
@@ -143,6 +149,7 @@ const app = new Vue({
 html
 
 ```html
+
 <div id="app">
   <!-- 一、使用字符串 -->
   <h1 :class="['active', 'line']">Bind class by array -- string</h1>
@@ -155,30 +162,34 @@ js
 
 ```javascript
  const app = new Vue({
-    el: '#app',
-    data: {
-      active: 'active',
-      line: 'light'
-    }
-  })
+  el: '#app',
+  data: {
+    active: 'active',
+    line: 'light'
+  }
+})
 ```
 
 #### 3.动态绑定style-对象语法
 
-我们可以使用:style来绑定内联样式
-在书写css属性名的时候:
+我们可以使用:style来绑定内联样式 在书写css属性名的时候:
+
 - 可以使用驼峰式(camelCase): fontSize
 - 或者使用短横线分隔(kebab-case), 需要使用单引号包裹: 'font-size'
 
 style后面跟的是一个对象类型:
+
 - 对象的key是css属性名称
 - 对象的value是具体赋的值, 值可以为变量, 即可以来自data中定义的变量
 
 html
 
 ```html
+
 <div id="app">
-  <h1 :style="{color: currentColor, fontSize: fontSize + 'px'}">Bind style by object</h1>
+  <h1 :style="{color: currentColor, fontSize: fontSize + 'px'}">
+    Bind style by object
+  </h1>
   <h1 :style="getStyles()">Bind style by object</h1>
 </div>
 ```
@@ -187,20 +198,20 @@ js
 
 ```javascript
   const app = new Vue({
-    el: '#app',
-    data: {
-      currentColor: 'yellow',
-      fontSize: 16
-    },
-    methods: {
-      getStyles() {
-        return {
-          background: this.currentColor,
-          fontSize: this.fontSize + 'px'
-        }
+  el: '#app',
+  data: {
+    currentColor: 'yellow',
+    fontSize: 16
+  },
+  methods: {
+    getStyles() {
+      return {
+        background: this.currentColor,
+        fontSize: this.fontSize + 'px'
       }
     }
-  })
+  }
+})
 ```
 
 #### 4.动态绑定style-数组语法
@@ -208,6 +219,7 @@ js
 html
 
 ```html
+
 <div id="app">
   <p :style="[active, important]">Bind styles by array</p>
 </div>
@@ -217,25 +229,27 @@ js
 
 ```javascript
   const app = new Vue({
-    el: '#app',
-    data: {
-      active: {
-        background: 'red'
-      },
-      important: {
-        fontSize: '50px'
-      }
+  el: '#app',
+  data: {
+    active: {
+      background: 'red'
+    },
+    important: {
+      fontSize: '50px'
     }
-  })
+  }
+})
 ```
 
 ### 五、计算属性(computed)
 
-在前面的案例中, 我们已经知道可以使用插值语法显示data中的数据, 模板内使用简单的表达式非常的便利, 但是复杂的逻辑只会使模板过于臃肿, 这时, 我们可以使用计算属性来对复杂的逻辑进行处理.
+在前面的案例中, 我们已经知道可以使用插值语法显示data中的数据, 模板内使用简单的表达式非常的便利, 但是复杂的逻辑只会使模板过于臃肿, 这时,
+我们可以使用计算属性来对复杂的逻辑进行处理.
 
 #### 1.基础案例
 
 ```html
+
 <div id="app">
   <h1>{{ fullName }}</h1>
 </div>
@@ -257,7 +271,59 @@ const app = new Vue({
 ```
 
 问题: methods和computed都可以实现我们的功能, 为什么还需要computed?
+
 原因: 计算属性会进行`缓存`, 如果多次使用时, 计算属性只会调用一次
 
 ### 六、v-on
 
+v-on:
+
+- 作用: 绑定事件监听器
+- 缩写: @
+- 预期: Function | Inline Statement | Object
+- 参数: event
+
+```html
+
+<div id="app">
+  <h1>{{ count }}</h1>
+  <button @click="increment">+</button>
+  <button @click="decrement">-</button>
+</div>
+```
+
+```javascript
+const app = new Vue({
+  el: '#app',
+  data: {
+    count: 0
+  },
+  methods: {
+    increment() {
+      this.count++;
+    },
+    decrement() {
+      this.count--;
+    }
+  }
+})
+```
+
+在methods中定义方法, 以供@click调用时, 需要注意的参数问题:
+
+- 如果该方法不需要额外的参数, 那么在调用方法时可以省略括号
+- 如果在传入其他参数的同时需要event参数, 可以通过$event传入事件
+
+```html
+
+<div id="app">
+  <!-- 没有参数 -->
+  <button @click="btn1Click">Button1</button>
+  <!-- 不省略括号时, 不显式传递event参数, 则event为undefined -->
+  <button @click="btn1Click()">Button2</button>
+  <!-- 不省略括号时传递event -->
+  <button @click="btn2Click($event)">Button3</button>
+  <!-- 传递默认参数和额外参数, 顺序无关 -->
+  <button @click="btn4Click($event, 'Chauncey')">Button4</button>
+</div>
+```
