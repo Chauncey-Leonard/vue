@@ -7,9 +7,11 @@
 <body>
 <div id="app">
   <my-component></my-component>
+  <my-template></my-template>
 </div>
 
-<!-- 组件模板 -->
+<!-- 组件模板, Vue提供了两种解决方案: 1.script标签 2.template标签 -->
+<!-- 1.script标签, 类型必须为: text/x-template -->
 <script type="text/x-template" id="myComponent">
   <div>
     <h2>组件标题</h2>
@@ -17,18 +19,23 @@
   </div>
 </script>
 
+<!-- 2.template标签 -->
+<template id="myTemplate">
+  <div>
+    <h2>template组件标题</h2>
+  </div>
+</template>
+
 <script src="../../js/vue.js"></script>
 <script>
-  /**
-   * Vue提供了两种方案(标签)来定义HTML内容
-   * -  script
-   * -  template
-   */
   const app = new Vue({
     el: '#app',
     components: {
       MyComponent: {
         template: '#myComponent'
+      },
+      MyTemplate: {
+        template: '#myTemplate'
       }
     }
   })
