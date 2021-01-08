@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-model结合select</title>
+</head>
+<body>
+<!--
+  和checkbox一样, select也分单选和多选两种情况
+  - 单选: 只能选中一个值
+    - v-model绑定的是一个值
+    - 当我们选中option中的一个时, 会将它对应的value赋值到定义的变量中
+  - 多选: 可以选中多个值
+    - v-model绑定的是一个数组
+    - 当选中多个值时, 就会将选中的option对应的value添加到绑定的数组中
+ -->
+<div id="app">
+  <!-- 1.select 单选 -->
+  <!-- <label for="fruit-select">水果</label> -->
+  <!-- <select name="fruit" id="fruit-select" v-model="favorite"> -->
+  <!--   <option value="apple">苹果</option> -->
+  <!--   <option value="orange">橘子</option> -->
+  <!--   <option value="banana">香蕉</option> -->
+  <!-- </select> -->
+  <!-- <h2>您选中的水果是: {{ favorite }}</h2> -->
+
+  <!-- 2.select 多选 -->
+  <label for="fruits-select">水果</label>
+  <select name="fruits" id="fruits-select" multiple v-model="favorites">
+    <option value="apple">苹果</option>
+    <option value="orange">橘子</option>
+    <option value="banana">香蕉</option>
+  </select>
+  <h2>您选中的水果: {{ favorites }}</h2>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      favorite: '',
+      favorites: []
+    }
+  })
+</script>
+</body>
+</html>
