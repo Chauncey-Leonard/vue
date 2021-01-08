@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>注册组件的语法糖写法</title>
+</head>
+<body>
+<div id="app">
+  <my-component></my-component>
+  <partial-component></partial-component>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  // 全局注册语法糖
+  Vue.component('MyComponent', {
+    template: `
+    <div>
+      <h2>组件标题</h2>
+      <p>组件内容</p>
+    </div>
+    `
+  });
+  /*
+   * 使用Vue.extend()注册组件比较繁琐, Vue提供了语法糖的写法, 主要是省去了Vue.extend(),
+   * 而是可以直接使用一个对象代替
+   */
+  const app = new Vue({
+    el: '#app',
+    components: {
+      PartialComponent: {
+        template: `
+          <div>
+            <h2>局部组件</h2>
+          </div>
+        `
+      }
+    }
+  })
+</script>
+</body>
+</html>
