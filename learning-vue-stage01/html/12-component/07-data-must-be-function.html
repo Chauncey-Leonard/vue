@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>为什么data必须是函数</title>
+</head>
+<body>
+<!--
+  data为函数并且返回一个对象, 多次调用用一个组件时数据互不影响
+-->
+<div id="app">
+  <my-component></my-component>
+  <my-component></my-component>
+  <my-component></my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h2>当前计数: {{ count }}</h2>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  // 注册全局组件
+  Vue.component('my-component', {
+    template: '#myComponent',
+    data() {
+      return {
+        count: 0
+      }
+    },
+    methods: {
+      increment() {
+        this.count++;
+      },
+      decrement() {
+        this.count--;
+      }
+    }
+  });
+
+  const app = new Vue({
+    el: '#app'
+  })
+</script>
+</body>
+</html>
