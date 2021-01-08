@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-model结合checkbox</title>
+</head>
+<body>
+<div id="app">
+  <label>
+    <span>Java</span>
+    <input type="checkbox" value="Java" v-model="languages">
+  </label>
+  <h2>{{ languages }}</h2>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      languages: []
+    }
+  })
+</script>
+</body>
+</html>
