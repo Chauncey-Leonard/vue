@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组件数据保存</title>
+</head>
+<body>
+<div id="app">
+  <my-component></my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h2>{{ title }}</h2>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  // 注册全局组件
+  Vue.component('my-component', {
+    template: '#myComponent',
+    data() {
+      return {
+        title: '组件标题'
+      }
+    }
+  })
+
+  /**
+   * 组件是一个单独功能模块的封装: 这个模块有属于自己的HTML模板, 也应该有属于自己的数据
+   * 如果所有的数据全部放在Vue实例中, 那么Vue实例就会变得十分臃肿, 因此组件应该有自己保存数据的地方
+   *
+   * 组件数据的存放:
+   * -  组件对象也有data属性
+   * -  只是这个data属性必须是一个函数
+   * -  函数返回的是一个对象, 对象内部保存着数据
+   */
+  const app = new Vue({
+    el: '#app'
+  })
+</script>
+</body>
+</html>
