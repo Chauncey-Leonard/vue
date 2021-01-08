@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>input中的值绑定</title>
+</head>
+<body>
+<div id="app">
+  <label v-for="(item, index) in languages" :key="index">
+    <input type="checkbox" :value="item" v-model="selectedLanguages">{{ item }}
+  </label>
+  <h2>您选择的是: {{ selectedLanguages }}</h2>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      flag: false,
+      languages: ['Java', 'JavaScript', 'Python', 'C++'],
+      selectedLanguages: []
+    }
+  })
+</script>
+</body>
+</html>
