@@ -6,7 +6,9 @@
 </head>
 <body>
 <div id="app">
-  <my-component :languages="languages" :name="name"></my-component>
+   <my-component :languages="languages" :name="name"></my-component>
+  <!-- 使用默认值 -->
+  <!-- <my-component :languages="languages"></my-component> -->
 </div>
 
 <template id="myComponent">
@@ -36,11 +38,26 @@
     template: '#myComponent',
     // 数组类型
     // props: ['languages']
+
     // 对象
     props: {
-      // 类型限制
-      name: String,
-      languages: Array
+      // 1.类型限制
+      // name: String,
+      // languages: Array
+
+      // 2.提供默认值
+      name: {
+        type: String,
+        default: 'default value',
+        required: true
+      },
+      // 类型是对象或者数组时, 默认值必须是一个函数
+      languages: {
+        type: Array,
+        default() {
+          return [];
+        }
+      }
     }
   }
 
