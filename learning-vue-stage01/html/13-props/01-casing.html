@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>camelCase vs kebab-case</title>
+</head>
+<body>
+<div id="app">
+  <!-- HTML中不支持驼峰, 只能写成kebab-case -->
+  <my-component :my-name="name"></my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h2>{{ myName }}</h2>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const myComponent = {
+    template: '#myComponent',
+    props: ['myName']
+  }
+  /**
+   * HTML中的attribute名是大小写不敏感的, 所以浏览器会把所有大写字符解释为小写字符
+   * 这意味着当你使用DOM中的模板时, camelCase的prop名需要使用其等价的kebab-case命名
+   */
+  const app = new Vue({
+    el: '#app',
+    data: {
+      name: 'Chauncey'
+    },
+    components: {
+      myComponent
+    }
+  })
+</script>
+</body>
+</html>
