@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>父子组件之间的通信</title>
+</head>
+<body>
+<div id="app">
+  <my-component :languages="languages" :name="name"></my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h2>{{ name }}</h2>
+    <ul>
+      <li
+        v-for="(language, index) in languages"
+        :key="index"
+      >
+        {{ language }}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  /*
+   * 在组件中使用选项props来声明需要从父级接收到的数据
+   * props的值有两种方式:
+   * -  字符串数组, 数组中的字符串就是传递时的名称
+   * -  对象, 对象可以设置传递时的类型, 也可以设置默认值等
+   *
+   */
+  const myComponent = {
+    template: '#myComponent',
+    // 数组类型
+    // props: ['languages']
+    // 对象
+    props: {
+      // 类型限制
+      name: String,
+      languages: Array
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      name: 'Chauncey',
+      languages: ['javascript', 'python', 'java']
+    },
+    components: {
+      myComponent
+    }
+  })
+</script>
+</body>
+</html>
