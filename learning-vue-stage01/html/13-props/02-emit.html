@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <my-component @send="myClickHandler"></my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h2>组件标题</h2>
+    <button @click="clickHandler">Click Me</button>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  /**
+   * 子组件
+   * 注意: 使用this.$emit(event, data)时, 在html中event必须为全部小写
+   */
+  const myComponent = {
+    template: '#myComponent',
+    data() {
+      return {
+        name: 'Chauncey'
+      }
+    },
+    methods: {
+      clickHandler() {
+        this.$emit('send', this.name);
+      }
+    }
+  }
+
+  // 父组件
+  const app = new Vue({
+    el: '#app',
+    components: {
+      myComponent
+    },
+    methods: {
+      myClickHandler(name) {
+        console.log(name)
+      }
+    }
+  })
+</script>
+</body>
+</html>
