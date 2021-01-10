@@ -361,3 +361,24 @@ v-on中的修饰符: 在某些情况下, 我们拿到event可能是进行一些�
   <button @click.once="clickHandler">Button4</button>
 </div>
 ```
+
+### 七、v-if vs v-show
+
+1.v-if
+
+根据表达式的值的truthiness来有条件地渲染元素。在切换时元素及它的数据绑定 / 组件被销毁并重建。如果元素是 <template>
+，将提出它的内容作为条件块。
+
+当条件变化时该指令触发过渡效果
+
+注意: 当和`v-if`一起使用时, `v-for`的优先级比`v-if`高
+
+```html
+
+<div id="app">
+  <p v-if="score >= 90">优秀</p>
+  <p v-else-if="score >= 80">良好</p>
+  <p v-else-if="score >= 60">及格</p>
+  <p v-else>不及格</p>
+</div>
+```
