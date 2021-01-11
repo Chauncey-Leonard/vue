@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>父组件访问子组件</title>
+</head>
+<body>
+<div id="app">
+  <my-component></my-component>
+  <button @click="clickHandler">Click Me</button>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h1>我是子组件</h1>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    methods: {
+      clickHandler() {
+        console.log(this.$children);
+        this.$children[0].showMessage();
+      }
+    },
+    components: {
+      myComponent: {
+        template: '#myComponent',
+        methods: {
+          showMessage() {
+            console.log('showMessage');
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
