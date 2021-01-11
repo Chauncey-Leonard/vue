@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>父子组件通信</title>
+</head>
+<body>
+<div id="app">
+  <my-component
+    :parent-number1="number1"
+    :parent-number2="number2"
+    @number1-change="number1Change"
+    @number2-change="number2Change"
+  />
+</div>
+
+<template id="myComponent">
+  <div>
+    <h1>props: {{ parentNumber1 }}</h1>
+    <h1>data: {{ childNumber1 }}</h1>
+    <label>
+      childNumber1
+      <input type="text" :value="childNumber1" @input="number1Change">
+    </label>
+
+    <h1>props: {{ parentNumber2 }}</h1>
+    <h1>data: {{ childNumber2 }}</h1>
+    <label>
+      childNumber2
+      <input type="text" :value="childNumber2" @input="number2Change">
+    </label>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  // 子组件
+  const myComponent = {
+    template: '#myComponent',
+    props: {
+      parentNumber1: Number,
+      parentNumber2: Number
+    },
+    data() {
+      return {
+        childNumber1: this.parentNumber1,
+        childNumber2: this.parentNumber2
+      }
+    },
+    methods: {
+      number1Change(event) {
+        this.childNumber1 = event.target.value;
+        this.$emit('number1-change', this.childNumber1);
+      },
+      number2Change(event) {
+        this.childNumber2 = event.target.value;
+        this.$emit('number2-change', this.childNumber2)
+      }
+    }
+  }
+
+  // 父组件
+  const app = new Vue({
+    el: '#app',
+    data: {
+      number1: 10,
+      number2: 12
+    },
+    components: {
+      myComponent
+    },
+    methods: {
+      number1Change(newValue) {
+        this.number1 = parseInt(newValue);
+      },
+      number2Change(newValue) {
+        this.number2 = parseInt(newValue);
+      }
+    }
+  })
+</script>
+</body>
+</html>
