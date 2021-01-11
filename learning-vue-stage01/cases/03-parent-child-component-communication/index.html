@@ -49,12 +49,22 @@
     },
     methods: {
       number1Change(event) {
+        // 1.将input中的数据赋值给childNumber1中
         this.childNumber1 = event.target.value;
+
+        // 2.为了让父组件的值可以进行修改，发出一个事件
         this.$emit('number1-change', this.childNumber1);
+
+        // 3.同时修改childNumber2的值
+        this.childNumber2 = this.childNumber1 * 100;
+        this.$emit('number2-change', this.childNumber2);
       },
       number2Change(event) {
         this.childNumber2 = event.target.value;
         this.$emit('number2-change', this.childNumber2)
+
+        this.childNumber1 = this.childNumber2 / 100;
+        this.$emit('number1-change', this.childNumber1);
       }
     }
   }
