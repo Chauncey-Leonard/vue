@@ -6,8 +6,9 @@
 </head>
 <body>
 <div id="app">
-  <my-component></my-component>
+  <my-component ref="myRef"></my-component>
   <button @click="clickHandler">Click Me</button>
+  <button @click="refClick">ref click</button>
 </div>
 
 <template id="myComponent">
@@ -24,6 +25,12 @@
       clickHandler() {
         console.log(this.$children);
         this.$children[0].showMessage();
+      },
+      refClick() {
+        /*
+        * $refs对象类型，默认是一个空的对象
+        * */
+        this.$refs.myRef.showMessage();
       }
     },
     components: {
