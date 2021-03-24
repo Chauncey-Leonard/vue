@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>插槽</title>
+</head>
+<body>
+<div id="app">
+  {{ name }}
+  <my-component>
+    <button>Click Me</button>
+  </my-component>
+  <hr>
+  <my-component>
+    <h1>slot use</h1>
+  </my-component>
+  <hr>
+  <my-component></my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h1>Slot</h1>
+    <slot>default value</slot>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const myComponent = {
+    template: '#myComponent'
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      name: 'Chauncey'
+    },
+    components: {
+      myComponent
+    }
+  });
+</script>
+</body>
+</html>
