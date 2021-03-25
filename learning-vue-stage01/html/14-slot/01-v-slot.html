@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>具名插槽</title>
+</head>
+<body>
+<div id="app">
+  <my-component>
+    <template slot="name">{{ name }}</template>
+  </my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h1>v-slot</h1>
+    <slot name="name">default value</slot>
+    <slot name="title">default value</slot>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const myComponent = {
+    template: '#myComponent'
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      name: 'Chauncey'
+    },
+    components: {
+      myComponent
+    }
+  })
+</script>
+</body>
+</html>
