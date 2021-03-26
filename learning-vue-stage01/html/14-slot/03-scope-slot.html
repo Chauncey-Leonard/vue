@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>作用域插槽</title>
+</head>
+<body>
+<div id="app">
+  <my-component>
+    <template slot-scope="slot">
+      <span v-for="item in slot.data">{{ item }} - </span><br>
+      <span>{{ slot.data.join(' * ') }}</span>
+    </template>
+  </my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <slot :data="languages">
+      <ul>
+        <li v-for="item in languages">{{ item }}</li>
+      </ul>
+    </slot>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  /**
+   * 父组件替换插槽的标签，但是内容有子组件提供
+   */
+  const app = new Vue({
+    el: '#app',
+    data: {
+      name: 'Chauncey'
+    },
+    components: {
+      myComponent: {
+        template: '#myComponent',
+        data() {
+          return {
+            languages: ['Javascript', 'Python', 'Java', 'PHP']
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
