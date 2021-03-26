@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>编译作用域</title>
+</head>
+<body>
+<div id="app">
+  <my-component v-show="show"></my-component>
+</div>
+
+<template id="myComponent">
+  <div>
+    <h1>子组件</h1>
+  </div>
+</template>
+
+<script src="../../js/vue.js"></script>
+<script>
+  const myComponent = {
+    template: '#myComponent',
+    data() {
+      return {
+        show: false
+      }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      name: 'Chauncey',
+      show: true
+    },
+    components: {
+      myComponent
+    }
+  })
+</script>
+</body>
+</html>
