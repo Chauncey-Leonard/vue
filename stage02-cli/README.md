@@ -1,19 +1,7 @@
-# stage02-cli
+#### 一、目录结构详解
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- `public`：相当于`cli2`中的`static`目录
+- `src`：源代码
+- `.browserslistrc`：浏览器相关支持
+- `.gitignore`：`git`忽略的文件
+- `babel.config.js`：`ES`语法转换
